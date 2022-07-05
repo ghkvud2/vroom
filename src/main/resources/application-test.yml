@@ -2,18 +2,21 @@ driver:
   name: webdriver.chrome.driver
   path: C:\Users\LG\Desktop\유틸리티\chromedriver.exe
 spring:
-  datasource:
-    url: jdbc:oracle:thin:@localhost:1521:orcl
-    username: digital3
-    password: digital3
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+#  datasource:
+#    url: jdbc:oracle:thin:@localhost:1521:orcl
+#    username: digital
+#    password: digital
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
   jpa:
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
         format_sql: true
-    generate-ddl: true
+  h2:
+    console:
+      enabled: true
+
 
 logging:
   level:

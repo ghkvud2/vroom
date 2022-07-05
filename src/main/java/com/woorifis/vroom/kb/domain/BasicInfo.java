@@ -11,8 +11,10 @@ import lombok.Setter;
 @Embeddable
 public class BasicInfo {
 
-	@Column(unique = true)
-	private String license;                //차량정보(번호판)
+
+
+//	@Column(unique = true)
+	private String license;                	//차량정보(번호판)
 	private String year;                    //연식
 	private String mileage;                 //주행거리
 	private String fuel;                    //연료

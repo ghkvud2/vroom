@@ -1,5 +1,6 @@
 package com.woorifis.vroom;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,6 +13,7 @@ import com.woorifis.vroom.kb.controller.KBCarController;
 
 import lombok.RequiredArgsConstructor;
 
+@Slf4j
 @RequiredArgsConstructor
 @EnableJpaAuditing
 @SpringBootApplication
@@ -31,7 +33,9 @@ public class VroomApplication {
 
 			@Override
 			public void run(ApplicationArguments args) throws Exception {
+				log.info("==================================================");
 				controller.run();
+				log.info("==================================================");
 			}
 		};
 	}
