@@ -64,9 +64,9 @@ public class KBCarService {
         String key1 = CarColumn.KIND.value();
         //div[@class='car-buy-price']/strong[@class='car-buy-name']
         //div[@class='car-price fn-benefit-add']/div[@class='car-img']/div[@class='txt']/span
-        String value1 = element.findElement(By.xpath("//div[@class='car-price fn-benefit-add']/div[@class='car-img']/div[@class='txt']/span")).getText();
+//        String value1 = element.findElement(By.xpath("//div[@class='car-price fn-benefit-add']/div[@class='car-img']/div[@class='txt']/span")).getText();
 
-        log.info("kind={}", value1);
+//        log.info("kind={}", value1);
 
         String key2 = CarColumn.PRICE.value();
         String value2 = element.findElement(By.xpath("//span[@class='price-sum']/strong")).getText();
@@ -74,7 +74,7 @@ public class KBCarService {
         String key3 = CarColumn.REGION.value();
         String value3 = element.findElement(By.xpath("//div[@class='txt-info']//span[4]")).getText();
 
-        param.put(key1, value1);
+//        param.put(key1, value1);
         param.put(key2, value2);
         param.put(key3, value3);
 
