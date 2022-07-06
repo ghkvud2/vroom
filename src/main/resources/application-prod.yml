@@ -1,6 +1,13 @@
 driver:
   name: webdriver.chrome.driver
-  path: C:\Users\LG\Desktop\유틸리티\chromedriver.exe
+  path: C:\Users\ghkvud-home\Downloads\chromedriver_win32\chromedriver.exe
+
+parameter:
+  default:
+    baseUrl: https://www.kbchachacha.com/public/search/main.kbc#!?page=
+    startPage: 1
+    endPage: 400
+    
 spring:
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:orcl
