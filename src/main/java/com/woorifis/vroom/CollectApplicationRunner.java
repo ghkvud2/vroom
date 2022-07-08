@@ -1,5 +1,6 @@
 package com.woorifis.vroom;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,12 +13,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RequiredArgsConstructor
 @Component
 @Profile({"local", "prod"})
 public class CollectApplicationRunner implements ApplicationRunner {
 
-	private final CollectController collectController;
+	@Autowired
+	private CollectController collectController;
 
 	@Value("${parameter.default.baseUrl}")
 	private String baseUrl;
@@ -28,6 +29,7 @@ public class CollectApplicationRunner implements ApplicationRunner {
 	@Value("${parameter.default.endPage}")
 	private int defaultEndPage;
 
+	//mvn spring-boot:run -Dspring-boot.run.profiles=prod
 	//java -jar -Dspring.profiles.active=prod --startPage=1 --endPage=2 vroom-1.0.jar
 	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar
 
