@@ -17,6 +17,7 @@ spring:
         format_sql: true
     generate-ddl: true
 
-#logging:
-#  level:
-#    org.hibernate.SQL: debug
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    password: digital

@@ -12,8 +12,8 @@ parameter:
 spring:
   datasource:
     url: jdbc:mysql://localhost/digital?serverTimezone=UTC
-    username: digital
-    password: digital
+    username: ENC(BCehGQz8lMngVmlKC9TZPg==)
+    password: ENC(ocednKSp/ah0aOagHU0xUQ==)
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: false
@@ -22,3 +22,8 @@ spring:
     properties:
       hibernate:
         format_sql: false
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    password: digital
+
