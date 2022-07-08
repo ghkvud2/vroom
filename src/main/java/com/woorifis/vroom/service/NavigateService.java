@@ -1,17 +1,18 @@
 package com.woorifis.vroom.service;
 
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RequiredArgsConstructor
 @Service
 public class NavigateService {
 
-	private final WebDriver driver;
+	@Autowired
+	private WebDriver driver;
 
 	public void navigateTo(String url) {
 		driver.navigate().to(url);

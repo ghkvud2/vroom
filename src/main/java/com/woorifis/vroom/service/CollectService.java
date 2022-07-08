@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.woorifis.vroom.config.WaitProcessor;
@@ -18,17 +19,20 @@ import com.woorifis.vroom.domain.Column;
 import com.woorifis.vroom.repository.CollectRepository;
 import com.woorifis.vroom.util.CollectUtils;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RequiredArgsConstructor
 @Service
 public class CollectService {
 
-	private final CollectRepository repository;
-	private final WebDriver driver;
-	private final WaitProcessor waitProcessor;
+	@Autowired
+	private CollectRepository repository;
+
+	@Autowired
+	private WebDriver driver;
+
+	@Autowired
+	private WaitProcessor waitProcessor;
 
 	public void collect(WebElement element) {
 		Car car = createCar(element);

@@ -9,27 +9,30 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.woorifis.vroom.config.WaitProcessor;
 import com.woorifis.vroom.service.CollectService;
 import com.woorifis.vroom.service.NavigateService;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class CollectController {
 
 	private static final int NUMBER_OF_THUMBNAIL = 20;
 	private static final long INTERVAL_OF_CLICK = 3 * 1000L;
 
-	private final CollectService collectService;
-	private final NavigateService navigateService;
-	private final WaitProcessor waitProcessor;
-	private final WebDriver driver;
+	@Autowired
+	private CollectService collectService;
+	@Autowired
+	private NavigateService navigateService;
+	@Autowired
+	private WaitProcessor waitProcessor;
+	@Autowired
+	private WebDriver driver;
 
 	private WebElement getDocumentOnCurrentPage() {
 		return driver.findElement(By.tagName("body"));
@@ -93,7 +96,7 @@ public class CollectController {
 
 				} catch (InterruptedException e) {
 					log.error("[InterruptedException]", e);
-				}catch (Exception e){
+				} catch (Exception e) {
 					log.error("[Exception]", e);
 					throw new RuntimeException(e);
 				}
