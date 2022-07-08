@@ -30,20 +30,21 @@ public class CollectApplicationRunner implements ApplicationRunner {
 	private int defaultEndPage;
 
 	//mvn spring-boot:run -Dspring-boot.run.profiles=prod
+	//mvn clean test -Dspring.profiles.active=test
 	//java -jar -Dspring.profiles.active=prod --startPage=1 --endPage=2 vroom-1.0.jar
 	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar
 
 	@Override
 	public void run(ApplicationArguments args) {
 
-		// String startPageOfArgs = args.getOptionValues("startPage").get(0);
-		// int startPage = startPageOfArgs == null ? defaultStartPage : Integer.valueOf(startPageOfArgs);
-		//
-		// String endPageOfArgs = args.getOptionValues("endPage").get(0);
-		// int endPage = endPageOfArgs == null ? defaultEndPage : Integer.valueOf(endPageOfArgs);
+		String startPageOfArgs = args.getOptionValues("startPage").get(0);
+		int startPage = startPageOfArgs == null ? defaultStartPage : Integer.valueOf(startPageOfArgs);
 
-		int startPage = defaultStartPage;
-		int endPage = defaultEndPage;
+		String endPageOfArgs = args.getOptionValues("endPage").get(0);
+		int endPage = endPageOfArgs == null ? defaultEndPage : Integer.valueOf(endPageOfArgs);
+
+		// int startPage = defaultStartPage;
+		// int endPage = defaultEndPage;
 
 		log.info("[Collect Range {} ~ {} (page)]", startPage, endPage);
 		collectController.run(baseUrl, startPage, endPage);
