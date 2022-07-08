@@ -16,23 +16,21 @@ import com.woorifis.vroom.config.WaitProcessor;
 import com.woorifis.vroom.service.CollectService;
 import com.woorifis.vroom.service.NavigateService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequiredArgsConstructor
 @Component
 public class CollectController {
 
 	private static final int NUMBER_OF_THUMBNAIL = 20;
 	private static final long INTERVAL_OF_CLICK = 3 * 1000L;
 
-	@Autowired
-	private CollectService collectService;
-	@Autowired
-	private NavigateService navigateService;
-	@Autowired
-	private WaitProcessor waitProcessor;
-	@Autowired
-	private WebDriver driver;
+	private final CollectService collectService;
+	private final NavigateService navigateService;
+	private final WaitProcessor waitProcessor;
+	private final WebDriver driver;
 
 	private WebElement getDocumentOnCurrentPage() {
 		return driver.findElement(By.tagName("body"));
@@ -71,6 +69,7 @@ public class CollectController {
 					carThumbnails.forEach(thumbnail -> {
 
 						try {
+							waitProcessor.elementToBeClickable(thumbnail, Duration.ofSeconds(5));
 							thumbnail.click(); //섬네일 클릭
 							log.info("{}th of {} page", ++index[0], currentPage);
 							List<String> tabs = new ArrayList<>(driver.getWindowHandles());//탭 목록 얻기

@@ -8,11 +8,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class NavigateService {
 
-	@Autowired
-	private WebDriver driver;
+	private final WebDriver driver;
 
 	public void navigateTo(String url) {
 		driver.navigate().to(url);

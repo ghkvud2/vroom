@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Component;
@@ -30,4 +31,10 @@ public class WaitProcessor {
 		WebDriverWait webDriverWait = new WebDriverWait(driver, duration);
 		webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
+
+	public void elementToBeClickable(WebElement element, Duration duration){
+		WebDriverWait webDriverWait = new WebDriverWait(driver, duration);
+		webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
 }

@@ -14,11 +14,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 @Profile({"local", "prod"})
 public class CollectApplicationRunner implements ApplicationRunner {
 
-	@Autowired
-	private CollectController collectController;
+	private final CollectController collectController;
 
 	@Value("${parameter.default.baseUrl}")
 	private String baseUrl;
@@ -31,7 +31,7 @@ public class CollectApplicationRunner implements ApplicationRunner {
 
 	//mvn spring-boot:run -Dspring-boot.run.profiles=prod
 	//mvn clean test -Dspring.profiles.active=test
-	//java -jar -Dspring.profiles.active=prod --startPage=1 --endPage=2 vroom-1.0.jar
+	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar --startPage=1 --endPage=2
 	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar
 
 	@Override

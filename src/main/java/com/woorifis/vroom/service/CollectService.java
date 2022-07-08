@@ -19,20 +19,17 @@ import com.woorifis.vroom.domain.Column;
 import com.woorifis.vroom.repository.CollectRepository;
 import com.woorifis.vroom.util.CollectUtils;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class CollectService {
 
-	@Autowired
-	private CollectRepository repository;
-
-	@Autowired
-	private WebDriver driver;
-
-	@Autowired
-	private WaitProcessor waitProcessor;
+	private final CollectRepository repository;
+	private final WebDriver driver;
+	private final WaitProcessor waitProcessor;
 
 	public void collect(WebElement element) {
 		Car car = createCar(element);
