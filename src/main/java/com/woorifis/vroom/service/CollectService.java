@@ -44,6 +44,11 @@ public class CollectService {
 		return element.findElements(locator);
 	}
 
+	public List<String> getCarLink(WebElement element){
+		By locator = By.xpath("//div[contains(@class,'generalRegist')]/div[@class='list-in']/div[contains(@class, 'area')]/div[@class='thumnail']/a");
+		return element.findElements(locator).stream().map(e -> e.getAttribute("href")).collect(Collectors.toList());
+	}
+
 	protected Car createCar(WebElement element) {
 		Map<String, String> param = getCarParameter(element);
 		Car car = Car.of(param);

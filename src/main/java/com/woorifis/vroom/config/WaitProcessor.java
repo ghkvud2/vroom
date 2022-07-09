@@ -33,9 +33,13 @@ public class WaitProcessor {
 		webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
-	public void elementToBeClickable(WebElement element, Duration duration){
+	public void elementToBeClickable(By locator, Duration duration){
 		WebDriverWait webDriverWait = new WebDriverWait(driver, duration);
-		webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
+		webDriverWait.until(ExpectedConditions.and(
+			ExpectedConditions.elementToBeClickable(locator),
+			ExpectedConditions.visibilityOfElementLocated(locator),
+			ExpectedConditions.presenceOfAllElementsLocatedBy(locator))
+		);
 	}
 
 }

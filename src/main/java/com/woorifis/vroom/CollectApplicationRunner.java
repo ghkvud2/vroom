@@ -35,7 +35,7 @@ public class CollectApplicationRunner implements ApplicationRunner {
 	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar
 
 	@Override
-	public void run(ApplicationArguments args) {
+	public void run(ApplicationArguments args) throws InterruptedException {
 
 		// String startPageOfArgs = args.getOptionValues("startPage").get(0);
 		// int startPage = startPageOfArgs == null ? defaultStartPage : Integer.valueOf(startPageOfArgs);

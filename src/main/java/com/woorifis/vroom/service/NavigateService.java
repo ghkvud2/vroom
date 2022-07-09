@@ -1,7 +1,6 @@
 package com.woorifis.vroom.service;
 
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -26,7 +25,11 @@ public class NavigateService {
 		driver.close();
 	}
 
-	public void refresh(){
+	public void refresh() {
 		driver.navigate().refresh();
+	}
+
+	public void back() {
+		driver.navigate().back();
 	}
 }
