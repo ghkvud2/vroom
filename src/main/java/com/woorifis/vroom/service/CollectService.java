@@ -39,7 +39,7 @@ public class CollectService {
 	}
 
 	public List<WebElement> getCarThumbnails(WebElement element) {
-		By locator = By.cssSelector(".generalRegist .list-in .area");
+		By locator = By.cssSelector(".generalRegist .list-in .area a.item");
 		// waitProcessor.numberOfElementsToBeMoreThan(locator, 19, Duration.ofSeconds(5));
 		return element.findElements(locator);
 	}

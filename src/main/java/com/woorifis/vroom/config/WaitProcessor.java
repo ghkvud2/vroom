@@ -23,7 +23,8 @@ public class WaitProcessor {
 			ExpectedConditions.and(
 				ExpectedConditions.numberOfElementsToBeMoreThan(locator, numberOfElements),
 				ExpectedConditions.visibilityOfElementLocated(locator),
-				ExpectedConditions.presenceOfAllElementsLocatedBy(locator)
+				ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
+				ExpectedConditions.elementToBeClickable(locator)
 				));
 	}
 

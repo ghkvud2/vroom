@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.woorifis.vroom.config.WaitProcessor;
@@ -61,10 +61,18 @@ public class CollectController {
 						log.error("[StaleElementReferenceException]", e);
 						navigateService.refresh(); //새로고침
 						Thread.sleep(INTERVAL_OF_CLICK); //wait
+					} catch (ElementClickInterceptedException e) {
+						log.error("[ElementClickInterceptedException]", e);
+						navigateService.refresh(); //새로고침
+						Thread.sleep(INTERVAL_OF_CLICK); //wait
+					} catch (Exception e) {
+						log.error("[ElementClickInterceptedException]", e);
+						return;
 					}
 
 					List<WebElement> carThumbnails = collectService.getCarThumbnails(getDocumentOnCurrentPage());
 					int[] index = {0};
+					log.info("[thumbnail size of current page]={}", carThumbnails.size());
 
 					carThumbnails.forEach(thumbnail -> {
 

@@ -37,14 +37,14 @@ public class CollectApplicationRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 
-		String startPageOfArgs = args.getOptionValues("startPage").get(0);
-		int startPage = startPageOfArgs == null ? defaultStartPage : Integer.valueOf(startPageOfArgs);
+		// String startPageOfArgs = args.getOptionValues("startPage").get(0);
+		// int startPage = startPageOfArgs == null ? defaultStartPage : Integer.valueOf(startPageOfArgs);
+		//
+		// String endPageOfArgs = args.getOptionValues("endPage").get(0);
+		// int endPage = endPageOfArgs == null ? defaultEndPage : Integer.valueOf(endPageOfArgs);
 
-		String endPageOfArgs = args.getOptionValues("endPage").get(0);
-		int endPage = endPageOfArgs == null ? defaultEndPage : Integer.valueOf(endPageOfArgs);
-
-		// int startPage = defaultStartPage;
-		// int endPage = defaultEndPage;
+		int startPage = defaultStartPage;
+		int endPage = defaultEndPage;
 
 		log.info("[Collect Range {} ~ {} (page)]", startPage, endPage);
 		collectController.run(baseUrl, startPage, endPage);
