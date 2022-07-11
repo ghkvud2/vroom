@@ -1,6 +1,7 @@
 driver:
   name: webdriver.chrome.driver
-  path: C:\Users\ghkvud-home\Downloads\chromedriver_win32\chromedriver.exe
+    #path: C:\Users\ghkvud-home\Downloads\chromedriver_win32\chromedriver.exe
+  path: /usr/bin/chromedriver
 
 
 parameter:
