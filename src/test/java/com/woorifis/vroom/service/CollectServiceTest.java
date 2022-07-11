@@ -68,7 +68,7 @@ class CollectServiceTest {
 		driver.get(url);
 
 		List<WebElement> carThumbnails = service.getCarThumbnails(getDocument());
-		assertEquals(20, carThumbnails.size());
+		assertEquals(25, carThumbnails.size());
 	}
 
 	private WebElement getDocument() {
