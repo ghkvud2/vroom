@@ -36,6 +36,9 @@ public class Car {
 	private String price;                //가격
 	private String region;                //지역
 
+	private String brandId;				//브랜드 ID
+	private String classId;				//클래스 ID
+
 	private String license;             //차량정보(번호판)
 	private String modelYear;           //연식
 	private String mileage;             //주행거리

@@ -28,12 +28,13 @@ import lombok.extern.slf4j.Slf4j;
 public class CollectService {
 
 	private final CollectRepository repository;
-	private final WebDriver driver;
-	private final WaitProcessor waitProcessor;
 
-	public void collect(WebElement element) {
+	public void collect(WebElement element, String brandId, String classId) {
 		Car car = createCar(element);
+		car.setBrandId(brandId);
+		car.setClassId(classId);
 		repository.save(car);
+
 		log.info("{}", car);
 		log.info("---------------------------------------");
 	}

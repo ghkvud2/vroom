@@ -31,11 +31,15 @@ public class CollectApplicationRunner implements ApplicationRunner {
 
 	//mvn spring-boot:run -Dspring-boot.run.profiles=prod
 	//mvn clean test -Dspring.profiles.active=test -Dmaven.test.skip=true
-	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar --startPage=1 --endPage=10
+	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar --markerCode=101 --classCode=1101 --startPage=1 --endPage=10
 	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar
 
 	@Override
 	public void run(ApplicationArguments args) throws InterruptedException {
+
+		String markerCode = args.getOptionValues("markerCode").get(0);
+		String classCode =  args.getOptionValues("classCode").get(0);
+
 
 		String startPageOfArgs = args.getOptionValues("startPage").get(0);
 		int startPage = startPageOfArgs == null ? defaultStartPage : Integer.valueOf(startPageOfArgs);
@@ -47,7 +51,7 @@ public class CollectApplicationRunner implements ApplicationRunner {
 		// int endPage = defaultEndPage;
 
 		log.info("[Collect Range {} ~ {} (page)]", startPage, endPage);
-		collectController.run(baseUrl, startPage, endPage);
+		collectController.run(baseUrl, markerCode, classCode, startPage, endPage);
 		log.info("[Collect end]");
 	}
 }

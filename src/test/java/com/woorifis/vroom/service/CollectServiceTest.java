@@ -64,7 +64,7 @@ class CollectServiceTest {
 	@Test
 	@DisplayName("페이지 일반 매물 차량 정보 섬네일")
 	void testCarThumbnail() {
-		url = "https://www.kbchachacha.com/public/search/main.kbc#!?countryOrder=1&page=1";
+		url = "https://www.kbchachacha.com/public/search/main.kbc#!?makerCode=101&classCode=1101&page=1";
 		driver.get(url);
 
 		List<WebElement> carThumbnails = service.getCarThumbnails(getDocument());

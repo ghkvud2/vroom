@@ -1,12 +1,13 @@
 driver:
   name: webdriver.chrome.driver
-    #path: C:\Users\ghkvud-home\Downloads\chromedriver_win32\chromedriver.exe
-  path: /usr/bin/chromedriver
+    path: C:\Users\ghkvud-home\Downloads\chromedriver_win32\chromedriver.exe
+#  path: /usr/bin/chromedriver
 
 
 parameter:
   default:
-    baseUrl: https://www.kbchachacha.com/public/search/main.kbc#!?page=
+#    baseUrl: https://www.kbchachacha.com/public/search/main.kbc#!?page=
+    baseUrl: https://www.kbchachacha.com/public/search/main.kbc#!?makerCode=%s&classCode=%s&page=%s
     startPage: 1
     endPage: 10
 
