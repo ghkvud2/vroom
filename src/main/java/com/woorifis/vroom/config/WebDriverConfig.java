@@ -22,8 +22,8 @@ public class WebDriverConfig {
 	public WebDriver chromeDriver() {
 		System.setProperty(DRIVER_NAME, DRIVER_PATH);
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("headless");
-		options.addArguments("start-maximized");
+		// options.addArguments("headless");
+		// options.addArguments("start-maximized");
 		options.addArguments("window-size=1920,1080");
 		WebDriver driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

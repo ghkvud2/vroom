@@ -31,7 +31,7 @@ public class CollectApplicationRunner implements ApplicationRunner {
 
 	//mvn spring-boot:run -Dspring-boot.run.profiles=prod
 	//mvn clean test -Dspring.profiles.active=test -Dmaven.test.skip=true
-	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar --markerCode=101 --classCode=1101 --startPage=1 --endPage=10
+	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar --markerCode=101 --classCode=1101 --startPage=21 --endPage=30
 	//java -jar -Dspring.profiles.active=prod vroom-1.0.jar
 
 	@Override

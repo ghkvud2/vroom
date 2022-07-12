@@ -1,5 +1,6 @@
 package com.woorifis.vroom.service;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CollectService {
 
 	private final CollectRepository repository;
+	private final WaitProcessor waitProcessor;
 
 	public void collect(WebElement element, String brandId, String classId) {
 		Car car = createCar(element);
@@ -83,6 +85,7 @@ public class CollectService {
 		param.put(Column.KIND.getName(), element.findElement(By.cssSelector(".car-buy-name")).getText());
 
 		//가격
+		waitProcessor.visibilityOfElementLocated(By.xpath("//span[@class='price-sum']/strong"), Duration.ofSeconds(5));
 		param.put(Column.PRICE.getName(), element.findElement(By.xpath("//span[@class='price-sum']/strong")).getText());
 
 		//지역
