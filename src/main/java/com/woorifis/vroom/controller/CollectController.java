@@ -70,7 +70,7 @@ public class CollectController {
                     log.info("{}th of {} page", (i + 1), currentPage);
                     By carInfoTableLocator = By.xpath("//table[@class='detail-info-table']/tbody/tr");
                     waitProcessor.visibilityOfElementLocated(carInfoTableLocator,
-                            Duration.ofSeconds(5));//렌더링 wait
+                            Duration.ofSeconds(10));//렌더링 wait
 
                     collectService.collect(getDocumentOnCurrentPage(), markerCode, classCode);//스크래핑
 
